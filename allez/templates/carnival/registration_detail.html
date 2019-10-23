@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+	{% include 'sidebar.html' %}
+	<div id="main-block">
+
+	<div>
+		<h1>{{ carnival.description }}</h1>
+		<h2>{{ carnival.date|date:'d M Y' }}</h2>
+		<h3>Rider Registration</h3>
+		<br>
+		<table class='race-card'>
+			<tr>
+				<td>Name</td>
+				<td>{{ rider.first_name }} <strong class='upper'>{{ rider.last_name }}</strong></td>
+			</tr>
+			<tr>
+				<td>Club</td>
+				<td>{{ rider.club }}</td>
+			</tr>
+			<tr>
+				<td>License</td>
+				<td>{{ rider.license_number }}</td>
+			</tr>
+			<tr>
+				<td>Grading</td>
+				<td>{{ rider.grade }}</td>
+			</tr>
+		</table>
+		<br>
+		<form method='POST' action='.'>
+			{% csrf_token %}
+			<input type="hidden" name="event" value="{{ carnival }}" />
+			<input type="hidden" name="rider" value="{{ rider }}" />
+			{% crispy form %}
+		</form>
+	</div>
+	</div>
+	<div id='sidebar'>
+		<h3>Recently registered</h3>
+		<table class='comments'>
+			{% for recent in recents %}
+			<tr>
+				<td>{{ recent.bib }}</td>
+				<td>{{ recent.rider.first_name }} <strong class='upper'>{{ recent.rider.last_name }}</strong></td>
+				<td>{{ recent.race }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+</div>
+
+{% endblock %}
+
+<!-- {% for event in events %}
+<p>{{ event.description }}</p>
+{% endfor %}
+ -->

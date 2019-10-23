@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+{% include 'sidebar.html' %}
+
+	<div id='main-block'>
+
+		<h3>Rider list</h3>
+		<body>
+			<table>
+				<thead>
+					<th style='width: 13em;'>Rider name</th>
+					<th style='width: 17em;'>Club</th>
+					<th style='width: 7em;'>Licence</th>
+					<th style='width: 8em;'>Grade</th>
+				</thead>
+				<tbody>
+					{% for rider in queryset %}
+					<tr>
+						<td><a href="{{ rider.get_absolute_url }}">{{ rider.first_name }} <strong class='upper'>{{ rider.last_name }}</strong></a></td>
+						<td>{{ rider.club }}</td>
+						<td>{{ rider.license_number }}</td>
+						<td>{{ rider.grade }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</body>
+	</div>
+
+	{% if request.user.is_staff %}
+		<div class="sidebar">
+			<a href="{% url 'add-rider' %}"><button class='button'>Add a rider</button></a>
+		</div>
+	{% endif %}	
+
+</div>
+
+
+{% endblock %}
+

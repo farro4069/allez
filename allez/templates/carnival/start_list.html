@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class='selector'>
+		<ul>
+			{% for race in races %}
+				<li><a href="{% url 'start-list' ra=race.id %}">{{ race }}</li></a>
+			{% endfor %}
+		</ul>
+	</div>
+
+
+
+	<table>
+		<thead>
+			<tr>
+				<th style='background-color: #8d8d8d; width: 30px;'>Event</th>
+				<th style='background-color: #8d8d8d; width: 180px;'>{{ event.description }}</th>
+				<th style='background-color: #4c75d4; width: 240px;'>{{ race_name.title }}</th>
+				<th style='background-color: #4c75d4; width: 80px;'>{{ number_starters }} riders</th>
+				<th style='background-color: #8e8e8e; width: 80px; text-align: center;'>Date</th>
+				<th style='background-color: #8e8e8e; width: 80px;'>{{ event.date|date:'d/m/y' }}</th>
+			</tr>
+			<tr>
+				<th>Bib</th>
+				<th>Rider</th>
+				<th>Club</th>
+				<th>License</th>
+				<th>Graded</th>
+				<th>Place</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for starter in starters %}
+			<tr>
+				<td>{{ starter.bib }}</td>
+				<td><a href="{{ starter.rider.get_absolute_url }}">{{ starter.rider.first_name }} <strong class='upper'>{{ starter.rider.last_name }}</strong></a></td>
+				<td>{{ starter.rider.club }}</td>
+				<td>{{ starter.rider.license_number }}</td>
+				<td>{{ starter.rider.grade }}</td>
+				<td></td>
+				{% if user.is_staff %}
+					<td><a href="{% url 'starter-detail' pk=starter.id %}"><button class='little-button'>Edit</button></a></td>
+					<td><a href="{% url 'starter-delete' pk=starter.id %}"><button class='little-button'>Remove</button></a></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+
+</div>
+
+
+{% endblock %}

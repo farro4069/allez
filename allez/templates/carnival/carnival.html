@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div id="main-block">
+		<h1>{{ event }}</h1>
+		<br>
+		<table class='race-card'>
+			<tr>
+				<td>Date</td>
+				<td>{{ event.date|date:'d M Y' }}</td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td>{{ event.description }}</td>
+			</tr>
+			<tr>
+				<td>Categories</td>
+				<td>
+					<ul>
+						{% for cat in event.categories.all %}
+							<li style="height: 20px;">{{ cat }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+	{% if request.user.is_staff %}
+		<div class="sidebar">
+			<a href="{% url 'add-carnival' %}"><button class='button'>Add a carnival</button></a>
+	{% endif %}
+
+	<h2>Results history</h2>
+	<table>
+		<thead>
+			<th style='width: 60px;'>Date</th>
+			<th style='width: 168px;'>Description</th>
+		</thead>
+		<tbody>
+			{% for his in history %}
+			<tr>
+				<td>{{ his.date|date:'d M' }}</td>
+				<td><a href="{% url 'results' ev=his.id ra=0 %}">{{ his.description }}</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+
+
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% load static %}
+
+  <header id='main-header'>
+    <div class='container'>
+      <img src="{% static 'img/allez_race_logo.png' %}" height=60px>
+      <h1>{{ request.user }}</h1>
+    </div>
+  </header>
+
+
+<nav id="navbar">
+  <div class="container">
+    <div>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'carnival' %}">Carnival</a></li>
+        <li><a href="{% url 'start-list'  ra=0 %}">Starters</a></li>
+        <li><a href="{% url 'results' ev=event.id ra=0 %}">Results</a></li>
+        <li><a href="{% url 'rider-list' %}">Riders</a></li>
+        {% if request.user.is_staff %}
+          <li><a href="{% url 'registration' %}">Registration</a></li>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

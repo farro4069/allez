@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+{% include 'sidebar.html' %}
+
+<div id='main-block'>
+<h1>Rider detail</h1>
+<div>
+	<table class='race-card'>
+		<tr>
+			<td>Name</td>
+			<td>{{ rider.first_name }} <strong class='upper'>{{ rider.last_name }}</strong></td>
+		</tr>
+		<tr>
+			<td>Club</td>
+			<td>{{ rider.club }}</td>
+		</tr>
+		<tr>
+			<td>License</td>
+			<td>{{ rider.license_number }}</td>
+		</tr>
+		<tr>
+			<td>Grading</td>
+			<td>{{ rider.grade }}</td>
+		</tr>
+	</table>
+	<a href="{% url 'rider-update' id=rider.id %}" class="category-crud">Edit</a>
+	{% if user.is_staff %}
+		<form action="{% url 'registration2' %}" class='myform'>
+			<div class="form-group">
+				<input type="hidden" name="q" value={{ rider.license_number }}>
+				<button class='button' type='submit'>Register to race</button>
+			</div>
+		</form>
+	{% endif %}
+<!-- 	<a href="{% url 'registration2' %}">
+		<button class='button'>Register</button>
+	</a> -->
+
+	<!-- <img src="{{ rider.profile.url }}" class='post-thumbnail'> -->
+</div>
+</div>
+
+
+<div>
+	<h3>Race results from last 12 months</h3>
+	<table>
+		<thead>
+			<tr>
+				<th style='width: 60px;'>Date</th>
+				<th style='width: 160px;'>Event</th>
+				<th style='width: 100px;'>Category</th>
+				<th style='width: 80px;'>Result</th>
+				<th style='width: 60px;'>Points</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for race in history %}
+				<tr>
+					<td>{{ race.event.date|date:"d M" }}</td>
+					<td>{{ race.event.description }}</td>
+					<td>{{ race.race }}</td>
+					<td>{{ race.result }}
+						{% if race.prime_one %} P1{% endif %}
+						{% if race.prime_two %} P2{% endif %}
+						{% if race.prime_three %} P3{% endif %}
+					</td>
+					<td></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<div id='sidebar'>
+	<h3>Officials comments</h3>
+	<table class='comments'>
+		<tbody>
+			{% for comment in rider.get_comments %}
+			<tr>
+				<td style="font-style: italic;">{{ comment.content }}</td>
+				<td style="font-size: 10px;">{{ comment.user }} {{ comment.timestamp|date:'d/m/y' }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% if user.is_staff %}
+		<h4>Add Comment</h4>
+		<form method="POST" action='.' class='commenting-form'>
+			{% csrf_token %}
+			{{ form }}
+			<button class="button" type='submit'>Submit</button>
+		</form>
+	{% endif %}
+</div>
+
+</div>
+</div>
+{% endblock %}
+

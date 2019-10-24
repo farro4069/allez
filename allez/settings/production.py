@@ -1,6 +1,8 @@
 from allez.settings.base import *
 
 
+ALLOWED_HOSTS = ['farro4069.pythonanywhere.com']
+
 DEBUG = False
 
 DATABASES = {

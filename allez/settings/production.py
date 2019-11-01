@@ -5,18 +5,22 @@ ALLOWED_HOSTS = ['farro4069.pythonanywhere.com']
 
 DEBUG = False
 
+SECRET_KEY = os.environ['SECRET_KEY']
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.path.join(os.path.join(BASE_DIR, 'db_allez.postgres')),
+        'USER': 'Allez',
+        'PASSWORD': 'allez',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
 
 
-
-
-try:
-    from allez.settings.local import * 
-except:
-    pass
+# try:
+#     from allez.settings.local import * 
+# except:
+#     pass

@@ -14,12 +14,12 @@
 
 .selector li {
 	display: inline;
-	background-color: #4c75d4;	
+	background-color: #73ae7a;	
 }
 
 .selector a {
 	padding: 1rem;
-	background-color: #4c75d4;
+	background-color: #73ae7a;
 	color: #fff;
 	font-size: 1em;
 	text-transform: uppercase;
@@ -28,13 +28,13 @@
 }
 
 .selector a:hover {
-	background-color: #444;
+	background-color: #4d8578;
 }
 
 .little-button {
 	margin: 0 0;
 	padding: 2px 4px;
-	background-color: #8a8a8a;
+	background-color: #ff6060;
 	color: #e9d9d9;
 	border: none;
 	border-radius: 2px;
@@ -44,7 +44,7 @@
 }
 
 .little-button:hover{
-	background-color: #9a9a9a;
+	background-color: #ff3b3b;
 	color: #3a3a3a;
 }
 
@@ -60,8 +60,8 @@ thead{
 }
 
 th {
-	background-color: rgba(224,154,74,.8);
-	border: 1px solid rgba(29,150,178,1);
+	background-color: #ff6060;
+	border: 1px solid #e7dddd;
 	font-weight: normal;
 	font-size: 13px;
 	text-align: center;
@@ -96,7 +96,7 @@ tr {
 }
 
 tr:nth-child(even){
-	background-color: #DBDBDB;
+	background-color: #e7dddd;
 }
 
 

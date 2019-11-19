@@ -21,10 +21,9 @@
 	padding: 10px;
 	background-color: #73ae7a;
 	color: #fff;
-	font-size: 14px;
+	font-size: 12px;
 	text-transform: uppercase;
 	text-decoration: none;
-
 }
 
 .selector a:hover {
@@ -34,11 +33,7 @@
 @media only screen and (min-width: 768px) {
 	.selector a {
 		padding: 12px;
-		background-color: #73ae7a;
-		color: #fff;
 		font-size: 16px;
-		text-transform: uppercase;
-		text-decoration: none;
 	}
 }
 

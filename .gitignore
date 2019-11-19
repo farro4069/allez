@@ -1,4 +1,4 @@
 *.pyc
-db_lifecycle.sqlite3
-/allez/settings/local
+allez/db_lifecycle.sqlite3
+allez/settings/local
 .DS_Store

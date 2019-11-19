@@ -18,10 +18,10 @@
 }
 
 .selector a {
-	padding: 1rem;
+	padding: 10px;
 	background-color: #73ae7a;
 	color: #fff;
-	font-size: 1em;
+	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
 
@@ -30,6 +30,19 @@
 .selector a:hover {
 	background-color: #4d8578;
 }
+
+@media only screen and (min-width: 768px) {
+	.selector a {
+		padding: 12px;
+		background-color: #73ae7a;
+		color: #fff;
+		font-size: 16px;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+}
+
+
 
 .little-button {
 	margin: 0 0;

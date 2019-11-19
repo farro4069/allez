@@ -10,7 +10,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # I've put the secret key in each of the settings environment files. 
 
-ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'accounts.MyUser'
 

@@ -5,6 +5,8 @@
 
 .selector {
 	text-align: left;
+	margin: 12px 0;
+
 }
 
 .selector ul {
@@ -18,10 +20,10 @@
 }
 
 .selector a {
-	padding: 10px;
+	padding: 8px;
 	background-color: #73ae7a;
 	color: #fff;
-	font-size: 12px;
+	font-size: 10px;
 	text-transform: uppercase;
 	text-decoration: none;
 }

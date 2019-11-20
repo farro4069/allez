@@ -51,60 +51,6 @@ h4{
 	display: none;
 }
 
-#navbar {
-	background-color: #4d8578;
-	color: #e9e9e9;
-	text-align: right;
-}
-
-#navbar ul{
-	padding: 0;
-	list-style: none;
-}
-
-#navbar li{
-	display: inline;
-
-}
-
-#navbar a{
-	color: #e9e9e9;
-	font-size: 14px;
-	text-decoration: none;
-	padding-right: 10px;
-}
-
-#navbar a:hover{
-	color: #999;
-}
-
-#navbar-left {
-	background-color: #444444;
-	color: #e9e9e9;
-	text-align: center;
-}
-
-#navbar-left ul {
-	padding: 0;
-	list-style: none;
-}
-
-#navbar-left li {
-	display: inline;
-
-}
-
-#navbar-left a {
-	color: #e9e9e9;
-	font-size: 18px;
-	text-decoration: none;
-	padding-right: 16px;
-}
-
-#navbar-left a:hover {
-	color: #999;
-}
-
 #showcase{
 	margin: -48px 0 0 0;
 	background-image: url('../img/allez3.jpg');

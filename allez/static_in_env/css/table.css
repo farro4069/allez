@@ -118,6 +118,12 @@ td {
 	line-height: 12px;
 }
 
+td a {
+		color: #4b61d1;
+}
+
+
+
 .td-center {
 	text-align: center;
 }

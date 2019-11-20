@@ -7,9 +7,9 @@ body{
 	margin: 0;
 }
 
-a{
+a {
 	text-decoration: none;
-	color: #9c9c9c;
+	color: #4b61d1;
 }
 
 a:hover{
@@ -21,7 +21,7 @@ a:active{
 }
 
 a:visited{
-	color: #6e6e6e;
+
 }
 
 h1 {

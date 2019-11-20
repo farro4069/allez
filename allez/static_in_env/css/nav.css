@@ -4,7 +4,7 @@
 }
 
 #hamburger {
-	background-color: #ff3b3b;
+	background-color: #4d8578;
 	margin: 0;
 	padding: 0 30px 0 30px;
 	}
@@ -19,7 +19,7 @@
 
 nav {
 	position: absolute;
-	background-color: #ff3b3b;
+	background-color: #4d8578;
 	text-align: left;
 	left: 0;
 	width: 100%;
@@ -43,7 +43,7 @@ nav a {
 	}
 
 nav a:hover {
-	color: #ff6060; 
+	color: #73ae7a; 
 }
 
 .hamburger-toggle {
@@ -60,18 +60,19 @@ nav a:hover {
 	left: 32px;
 	margin-left: 12px;
 	line-height: 64px;
-
 }
 
 .hamburger-toggle-label span,
 .hamburger-toggle-label span::before,
 .hamburger-toggle-label span::after {
-	display: block;
+	position: relative;
+	display: flex;
 	background-color: #e7dddd;
 	height:3px;
-	width: 28px;
+	width: 24px;
 	border-radius: 3px;
-	position: relative;
+	align-items: center;
+	justify-content: center;
 }
 
 .hamburger-toggle-label span::before,
@@ -88,7 +89,12 @@ nav a:hover {
 	top: 6px;
 }
 
+.hamburger-toggle-label:hover {
+	transform: rotate(165deg);
 
+}
+
+/* ------------------------------------------------- */
 
 @media only screen and (min-width: 768px){
 
